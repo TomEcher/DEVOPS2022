@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+ api:
+  build: "./backend"
+  networks:
+   - "my-network"
+  depends_on:
+   - "db"
+
+ db:
+  build: "./PG"
+  networks:
+   - "my-network"
+ web:
+  build: "./web"
+  networks:
+   - "my-network"
+ httpd:
+  build: "./reverseProxy"
+  ports:
+   - "80:80"
+  networks:
+   - "my-network"
+  depends_on:
+   - "api"
+   - "web"
+
+networks:
+ my-network:
+  name: network01

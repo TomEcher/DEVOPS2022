@@ -20,3 +20,20 @@ jobs:
     #finally build your app with the latest command
       - name: Build and test with Maven
         run: mvn clean verify --file TP01/backend/simple-api/pom.xml
+  build-and-push-docker-image:
+    needs: test-backend
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-latest
+    # steps to perform in job
+    steps:
+    - name: Login to DockerHub
+      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_PASSWORD }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Build image and push backend
+      uses: docker/build-push-action@v2
+      with:
+      # relative path to the place where source code withDockerfile is located
+      context: ./simple-api
+      # Note: tags has to be all lower-case
+      tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:simple-api

@@ -15,7 +15,7 @@ jobs:
           java-version: '11'
           cache: 'maven'
       - name: Build and test with Maven
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=devops-2022 -Dsonar.organization=tomecher -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN }} --file TP01/backend/simple-api/pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=DEVOPS2022 -Dsonar.organization=tomecher -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN }} --file TP01/backend/simple-api/pom.xml
   build-and-push-docker-image:
     needs: test-backend
     runs-on: ubuntu-latest

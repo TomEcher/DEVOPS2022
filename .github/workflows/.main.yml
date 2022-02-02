@@ -1,4 +1,4 @@
-name: CI DevOps 2022 CPE  
+name: CI DevOps 2022 CPE   
 on:
   push:
     branches: 

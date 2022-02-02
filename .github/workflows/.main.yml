@@ -38,5 +38,27 @@ jobs:
         context: ./TP01/backend
       # Note: tags has to be all lower-case
         tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:backend
-        # build on feature branches, push only on main branch
-   
+    - name: Build image and push db
+      uses: docker/build-push-action@v2
+      with:
+        push: ${{ github.ref == 'refs/heads/main' }}
+      # relative path to the place where source code withDockerfile is located
+        context: ./PG
+      # Note: tags has to be all lower-case
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:database
+    - name: Build image and push reverse proxy
+      uses: docker/build-push-action@v2
+      with:
+        push: ${{ github.ref == 'refs/heads/main' }}
+      # relative path to the place where source code withDockerfile is located
+        context: ./reverseProxy
+      # Note: tags has to be all lower-case
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:rproxy
+    - name: Build image and push apache
+      uses: docker/build-push-action@v2
+      with:
+        push: ${{ github.ref == 'refs/heads/main' }}
+      # relative path to the place where source code withDockerfile is located
+        context: ./web
+      # Note: tags has to be all lower-case
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:web

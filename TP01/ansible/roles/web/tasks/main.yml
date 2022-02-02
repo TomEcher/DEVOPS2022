@@ -1,0 +1,8 @@
+---
+# tasks file for roles/web
+- name: Run Web
+  docker_container:
+    name: web
+    image: echert/tp-devops-cpe:web
+    networks:
+      - name: "network01"

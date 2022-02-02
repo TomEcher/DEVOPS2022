@@ -1,0 +1,10 @@
+---
+# tasks file for roles/app
+- name: Run Api
+  docker_container:
+    name: api
+    image: echert/tp-devops-cpe:backend
+    networks:
+      - name: "network01"
+    ports:
+     - "8080:8080"

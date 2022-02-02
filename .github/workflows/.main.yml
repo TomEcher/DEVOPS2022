@@ -43,7 +43,7 @@ jobs:
       with:
         push: ${{ github.ref == 'refs/heads/main' }}
       # relative path to the place where source code withDockerfile is located
-        context: ./PG
+        context: ./TP01/PG
       # Note: tags has to be all lower-case
         tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:database
     - name: Build image and push reverse proxy
@@ -51,7 +51,7 @@ jobs:
       with:
         push: ${{ github.ref == 'refs/heads/main' }}
       # relative path to the place where source code withDockerfile is located
-        context: ./reverseProxy
+        context: ./TP01/reverseProxy
       # Note: tags has to be all lower-case
         tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:rproxy
     - name: Build image and push apache
@@ -59,6 +59,6 @@ jobs:
       with:
         push: ${{ github.ref == 'refs/heads/main' }}
       # relative path to the place where source code withDockerfile is located
-        context: ./web
+        context: ./TP01/web
       # Note: tags has to be all lower-case
         tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:web

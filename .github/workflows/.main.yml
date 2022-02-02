@@ -15,7 +15,8 @@ jobs:
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '11'
+          cache: 'maven'
         #TODO
     #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn clean verify --file /TP01/backend/simple-api/pom.xml
+        run: mvn clean verify --file TP01/backend/simple-api/pom.xml

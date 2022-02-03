@@ -6,5 +6,3 @@
     image: echert/tp-devops-cpe:backend
     networks:
       - name: "network01"
-    ports:
-     - "8080:8080"

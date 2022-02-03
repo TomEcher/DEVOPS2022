@@ -21,12 +21,20 @@ services:
   build: "./reverseProxy"
   ports:
    - "80:80"
+   - "8080:8080"
   networks:
    - "my-network"
   depends_on:
    - "api"
    - "web"
-
+   - "front"
+   
+ front:
+  build: "./devops-front"
+  networks:
+   - "my-network"
+  depends_on:
+   - "api"
 networks:
  my-network:
   name: network01

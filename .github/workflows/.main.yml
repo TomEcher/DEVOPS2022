@@ -44,7 +44,7 @@ jobs:
       with:
         push: ${{ github.ref == 'refs/heads/main' }}
         context: ./TP01/reverseProxy
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:rproxyv4
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:rproxyv5
     - name: Build image and push apache
       uses: docker/build-push-action@v2
       with:
@@ -56,5 +56,5 @@ jobs:
       with:
         push: ${{ github.ref == 'refs/heads/main' }}
         context: ./TP01/devops-front
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:front
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:front2
   

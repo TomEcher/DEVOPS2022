@@ -3,8 +3,9 @@
 - name: Run HTTPD
   docker_container:
     name: rproxy
-    image: echert/tp-devops-cpe:rproxyv4
+    image: echert/tp-devops-cpe:rproxyv5
     ports:
      - "80:80"
+     - "8080:8080"
     networks:
       - name: "network01"

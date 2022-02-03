@@ -17,7 +17,7 @@ services:
   networks:
    - "my-network"
 
- httpd:
+ httpd6:
   build: "./reverseProxy"
   ports:
    - "80:80"
@@ -28,7 +28,7 @@ services:
    - "api"
    - "web"
    - "front"
-   
+
  front:
   build: "./devops-front"
   networks:

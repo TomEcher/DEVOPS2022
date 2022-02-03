@@ -56,5 +56,5 @@ jobs:
       with:
         push: ${{ github.ref == 'refs/heads/main' }}
         context: ./TP01/devops-front
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:front3
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-cpe:front4
   

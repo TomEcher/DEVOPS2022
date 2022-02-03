@@ -3,6 +3,6 @@
 - name: Run Front
   docker_container:
     name: front
-    image: echert/tp-devops-cpe:front3
+    image: echert/tp-devops-cpe:front4
     networks:
       - name: "network01"
